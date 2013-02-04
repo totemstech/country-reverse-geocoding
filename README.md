@@ -40,16 +40,6 @@ crg.get_country(47.3, 0.7, function(err, country) {
 });
 ```
 
-### Options
-
-The default GeoJSON file can be replaced by calling:
-
-```javascript
-var crg = require('country-reverse-geocoding').country_reverse_geocoding({
-  country_geo_json = 'path/to/custom.geo.json'
-});
-```
-
 ## Tests
 
 Install jasmine-node:

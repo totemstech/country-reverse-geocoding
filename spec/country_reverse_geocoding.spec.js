@@ -1,9 +1,6 @@
 var crg = require('../lib/country_reverse_geocoding.js')
           .country_reverse_geocoding();
 
-var crg_fail = require('../lib/country_reverse_geocoding.js')
-          .country_reverse_geocoding({ country_geo_json: './foo.geo.json' });
-
 describe("Country reverse geocoding", function() {
   var flag, results;
 
@@ -11,29 +8,6 @@ describe("Country reverse geocoding", function() {
     runs(function() {
       flag = false;
       crg.get_country('foo', 'bar', function(err, country) {
-        results = {
-          err: err,
-          country: country
-        };
-        flag = true;
-      });
-    });
-
-    waitsFor(function() {
-      return flag;
-    }, "Result should be returned", 500);
-    
-    runs(function() {
-      expect(results.err).not.toBe(null);
-      expect(results.err instanceof Error).toBe(true);
-      expect(typeof results.country).toBe('undefined');
-    });
-  });
-
-  it("should return an error if the data file is not found", function() {
-    runs(function() {
-      flag = false;
-      crg_fail.get_country(47.3, 0.7, function(err, country) {
         results = {
           err: err,
           country: country
