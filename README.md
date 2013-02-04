@@ -11,33 +11,21 @@ NodeJS module to reverse geocoding of countries.
 
 The only method of this module is `get_country`:
 
-`get_country(lat, lng, callback)`
+`get_country(lat, lng)`
 
 Where `lat` and `lng` are the latitude and longitude of the point to be
-reverse-geocoded and `callback` is a function being called once a result or
-an error is found.
-The `callback` returns with two parameters: an `Error` if something went wrong 
-(`null` otherwise), and a `country` object.
-The `country` object is `null` if the given point is not located in any country.
-If it is located in a country, then the object has two attributes: `code`,
-the country code, and `name`, the English name of this country.
+reverse-geocoded.
+`get_country` returns:
+* an `Error` if something went wrong
+* `null` if the point is not in any country
+* an object with two attributes: `code`, the country code, and `name`, the English name of this country
 
 ```javascript
 var crg = require('country-reverse-geocoding').country_reverse_geocoding();
 
-crg.get_country(47.3, 0.7, function(err, country) {
-  if(err) {
-    console.log(err.message)
-  }
-  else {
-    if(country) {
-      console.log('This point is in ' + JSON.stringify(country.name));
-    }
-    else {
-      console.log('This point is not located in any country');
-    }
-  }
-});
+var country = crg.get_country(47.3, 0.7);
+
+console.log(country.name); // France
 ```
 
 ## Tests

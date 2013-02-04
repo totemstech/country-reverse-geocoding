@@ -5,74 +5,24 @@ describe("Country reverse geocoding", function() {
   var flag, results;
 
   it("should return an error if coordinates are not accurate", function() {
-    runs(function() {
-      flag = false;
-      crg.get_country('foo', 'bar', function(err, country) {
-        results = {
-          err: err,
-          country: country
-        };
-        flag = true;
-      });
-    });
+    var results = crg.get_country('foo', 'bar');
 
-    waitsFor(function() {
-      return flag;
-    }, "Result should be returned", 500);
-    
-    runs(function() {
-      expect(results.err).not.toBe(null);
-      expect(results.err instanceof Error).toBe(true);
-      expect(typeof results.country).toBe('undefined');
-    });
+    expect(results instanceof Error).toBe(true);
   });
 
   it("should return information about a country", function() {
-    runs(function() {
-      flag = false;
-      crg.get_country(47.3, 0.7, function(err, country) {
-        results = {
-          err: err,
-          country: country
-        };
-        flag = true;
-      });
-    });
+    var results = crg.get_country(47.3, 0.7);
 
-    waitsFor(function() {
-      return flag;
-    }, "Result should be returned", 500);
-    
-    runs(function() {
-      expect(results.err).toBe(null);
-      expect(typeof results.country).toBe('object');
-      expect(typeof results.country.code).not.toBe('undefined');
-      expect(typeof results.country.name).not.toBe('undefined');
-      // This particular point should be in France
-      expect(results.country.code).toBe('FRA');
-    });
+    expect(typeof results).toBe('object');
+    expect(typeof results.code).not.toBe('undefined');
+    expect(typeof results.name).not.toBe('undefined');
+    // This particular point should be in France
+    expect(results.code).toBe('FRA');
   });
 
   it("should return null if no country was matched", function() {
-    runs(function() {
-      flag = false;
-      // Somewhere in the Atlantic Ocean
-      crg.get_country(55.5, -30.9, function(err, country) {
-        results = {
-          err: err,
-          country: country
-        };
-        flag = true;
-      });
-    });
+    var results = crg.get_country(55.5, -30.9);
 
-    waitsFor(function() {
-      return flag;
-    }, "Result should be returned", 500);
-    
-    runs(function() {
-      expect(results.err).toBe(null);
-      expect(results.country).toBe(null);
-    });
+    expect(results).toBe(null);
   });
 });
