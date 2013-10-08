@@ -27,12 +27,11 @@ describe("Country reverse geocoding", function() {
 
   it("should return information about a us state", function() {
     var results = crg.get_us_state(32.377447, -86.300942);
-    console.log(results);
 
     expect(typeof results).toBe('object');
     expect(typeof results.code).not.toBe('undefined');
     expect(typeof results.name).not.toBe('undefined');
-    // This particular point should be in France
+    // This particular point should be in Alabama
     expect(results.code).toBe('USA-AL');
   });
 
