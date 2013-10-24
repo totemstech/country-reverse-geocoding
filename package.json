@@ -1,6 +1,6 @@
 {
   "name": "country-reverse-geocoding",
-  "version": "0.2.0",
+  "version": "0.2.1",
   "description": "Node.js reverse geocoding for countries & us states",
   "keywords": ["reverse", "geocoding", "countries", "country"],
   "homepage": "https://github.com/teleportd/country-reverse-geocoding",
