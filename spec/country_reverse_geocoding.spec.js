@@ -18,6 +18,9 @@ describe("Country reverse geocoding", function() {
     expect(typeof results.name).not.toBe('undefined');
     // This particular point should be in France
     expect(results.code).toBe('FRA');
+
+    results = crg.get_country(1.352083 , 103.819836);
+    expect(results.code).toBe('SGP');
   });
 
   it("should return null if no country was matched", function() {
