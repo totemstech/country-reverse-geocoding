@@ -1,6 +1,6 @@
 {
   "name": "@tzabian/country-reverse-geocoding",
-  "version": "0.1",
+  "version": "0.1.0",
   "description": "Node.js reverse geocoding for countries & us states",
   "keywords": ["reverse", "geocoding", "countries", "country"],
   "homepage": "https://github.com/dubizzle/country-reverse-geocoding",
