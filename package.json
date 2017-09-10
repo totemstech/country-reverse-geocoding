@@ -1,14 +1,14 @@
 {
-  "name": "country-reverse-geocoding",
-  "version": "0.2.1",
+  "name": "@tzabian/country-reverse-geocoding",
+  "version": "0.1.0",
   "description": "Node.js reverse geocoding for countries & us states",
   "keywords": ["reverse", "geocoding", "countries", "country"],
-  "homepage": "https://github.com/teleportd/country-reverse-geocoding",
-  "author": { "name": "Guillaume Flandre",
-              "email": "guillaume@teleportd.com",
-              "url": "http://twitter.com/gflandre" },
+  "homepage": "https://github.com/dubizzle/country-reverse-geocoding",
+  "author": { "name": "Tariq Zabian",
+              "email": "tariq@sheddapp.com",
+              "url": "http://sheddapp.com" },
   "repository" :    { "type" :  "git",
-                      "url" :   "https://github.com/teleportd/country-reverse-geocoding.git" },
+                      "url" :   "https://github.com/dubizzle/country-reverse-geocoding.git" },
   "dependencies": {
     "fwk": "1.0.x"
   },
